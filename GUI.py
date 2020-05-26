@@ -27,8 +27,14 @@ class GUI:
 
     def search(self):
         self.serach_window = Tk()
-        Scrollbar(self.serach_window, width=200, borderwidth=100).pack()
-        Button(self.serach_window, text='확인', command=self.get_location).pack()
+        self.scrollbar = Scrollbar(self.serach_window)
+        self.scrollbar.pack()
+        self.listbox = Listbox(self.serach_window, yscrollcommand=self.scrollbar.set)
+        for line in range(5):
+            self.listbox.insert(line, str(line)+'aaa')
+        self.listbox.pack(side=LEFT)
+        self.scrollbar['command']=self.listbox.yview
+        Button(self.serach_window, text='확인', command=self.get_location).pack(side=RIGHT)
 
     def get_location(self):
         self.serach_window.destroy()
