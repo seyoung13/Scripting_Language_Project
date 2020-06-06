@@ -15,6 +15,7 @@ class GUI:
         self.departure = StringVar()
         self.destination = StringVar()
         self.start_x, self.start_y, self.end_x, self.end_y = [], [], [], []
+        self.target_index = 0
 
         self.departure_entry = Entry(self.window, textvariable=self.departure)
         self.departure_entry.grid(row=0, column=1)
@@ -32,6 +33,7 @@ class GUI:
         self.path_scroll.grid(row=2, column=2, sticky='w'+'n'+'s')
         self.path_list = Listbox(self.window, yscrollcommand=self.path_scroll.set)
         self.path_list.grid(row=2, column=1)
+        Button(self.window, text='확인', command=lambda: self.set_path_bus_n_subway()).grid(row=2, column=2)
 
         Label(self.window, text='이메일 주소').grid(row=3, column=0)
         Entry(self.window).grid(row=3, column=1)
@@ -62,19 +64,19 @@ class GUI:
 
     def set_location(self, classification_code, location_list, window, ):
         if location_list.curselection():
-            i = location_list.curselection()
-            location_info = location_list.get(i)
+            self.target_index = location_list.curselection()
+            location_info = location_list.get(self.target_index)
             if classification_code == DEPARTURE:
-                print(self.start_x[i[0]], self.start_y[i[0]])
+                print(self.start_x[self.target_index], self.start_y[self.target_index])
                 self.departure.set(location_info)
-                # location_list[location_list.curselection()]
             else:
-                print(self.end_x[i[0]], self.end_y[i[0]])
+                print(self.end_x[self.target_index], self.end_y[self.target_index])
                 self.destination.set(location_info)
         window.destroy()
 
-    def set_path_bus_n_subway(self, departure, destination):
-        pass
+    def set_path_bus_n_subway(self):
+        p = transferAPI.search_path_info_bus_n_subway(self.start_x, self.start_y, self.end_x, self.end_y)
+        print(p)
 
 
 GUI()
