@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_3337fb9937664073af4f76893a94c7cb {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_3337fb9937664073af4f76893a94c7cb" ></div>
+        
+</body>
+<script>    
+    
+            var map_3337fb9937664073af4f76893a94c7cb = L.map(
+                "map_3337fb9937664073af4f76893a94c7cb",
+                {
+                    center: [37.485361758634966, 126.78459515885046],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 16,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_b3039e211487489a804fa2c5f3278f1a = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_3337fb9937664073af4f76893a94c7cb);
+        
+    
+            var marker_5c8fc8ecf1ff452dbcf0e0d387ba45d3 = L.marker(
+                [37.485361758634966, 126.78459515885046],
+                {}
+            ).addTo(map_3337fb9937664073af4f76893a94c7cb);
+        
+    
+        var popup_45a11872bf29403db903b81fdc5f3545 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_4f2628d6aa534ad4881ec75d8652564d = $(`<div id="html_4f2628d6aa534ad4881ec75d8652564d" style="width: 100.0%; height: 100.0%;">부천역북부(기점)</div>`)[0];
+            popup_45a11872bf29403db903b81fdc5f3545.setContent(html_4f2628d6aa534ad4881ec75d8652564d);
+        
+
+        marker_5c8fc8ecf1ff452dbcf0e0d387ba45d3.bindPopup(popup_45a11872bf29403db903b81fdc5f3545)
+        ;
+
+        
+    
+    
+            var marker_78545d8d72d74d5aa91b88ba129c2656 = L.marker(
+                [37.50364940901017, 126.78696311251737],
+                {}
+            ).addTo(map_3337fb9937664073af4f76893a94c7cb);
+        
+    
+        var popup_2e27adf8b76647faa8693599b57080e6 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_eb258f64a42048e693d245a372db1148 = $(`<div id="html_eb258f64a42048e693d245a372db1148" style="width: 100.0%; height: 100.0%;">춘의역</div>`)[0];
+            popup_2e27adf8b76647faa8693599b57080e6.setContent(html_eb258f64a42048e693d245a372db1148);
+        
+
+        marker_78545d8d72d74d5aa91b88ba129c2656.bindPopup(popup_2e27adf8b76647faa8693599b57080e6)
+        ;
+
+        
+    
+    
+            var marker_b3298e14b19140c7860f3e544ab2fab9 = L.marker(
+                [37.49975565250921, 126.7864086711163],
+                {}
+            ).addTo(map_3337fb9937664073af4f76893a94c7cb);
+        
+    
+        var popup_0d079393d7484b61906214d52463af84 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_a4eb3906cb49454d9d57c05ac2dbdd01 = $(`<div id="html_a4eb3906cb49454d9d57c05ac2dbdd01" style="width: 100.0%; height: 100.0%;">춘의테크노파크단지앞</div>`)[0];
+            popup_0d079393d7484b61906214d52463af84.setContent(html_a4eb3906cb49454d9d57c05ac2dbdd01);
+        
+
+        marker_b3298e14b19140c7860f3e544ab2fab9.bindPopup(popup_0d079393d7484b61906214d52463af84)
+        ;
+
+        
+    
+    
+            var marker_540bda94df01471a983a4aeea0df34d1 = L.marker(
+                [37.4919952412182, 126.82344488120832],
+                {}
+            ).addTo(map_3337fb9937664073af4f76893a94c7cb);
+        
+    
+        var popup_82bf5fb0576b47d1991877805feaae00 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_60f08e5ca9d14f9a99885da1adf01016 = $(`<div id="html_60f08e5ca9d14f9a99885da1adf01016" style="width: 100.0%; height: 100.0%;">온수역</div>`)[0];
+            popup_82bf5fb0576b47d1991877805feaae00.setContent(html_60f08e5ca9d14f9a99885da1adf01016);
+        
+
+        marker_540bda94df01471a983a4aeea0df34d1.bindPopup(popup_82bf5fb0576b47d1991877805feaae00)
+        ;
+
+        
+    
+</script>

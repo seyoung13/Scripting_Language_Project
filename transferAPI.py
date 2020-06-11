@@ -5,6 +5,7 @@ import http.client
 from xml.etree import ElementTree
 
 # 대중교통 환승정보 서비스 API
+connection = http.client.HTTPConnection('ws.bus.go.kr')
 # 인증키
 key = '8zvGJaRxZX2%2Fr%2BWKMJ5jvbJstf1HYfg3vKs%2FTZaSBSXcJkPVoz7b1i4f4Dut5B8cZePVHygCmITymwMx2VeW0w%3D%3D'
 # 환승정보 api의 url
@@ -12,9 +13,6 @@ get_location_url = '/api/rest/pathinfo/getLocationInfo?ServiceKey='
 get_path_bus_url = '/api/rest/pathinfo/getPathInfoByBus?ServiceKey='
 get_path_sub_url = '/api/rest/pathinfo/getPathInfoBySubway?ServiceKey='
 get_path_bus_N_sub_url = '/api/rest/pathinfo/getPathInfoByBusNSub?serviceKey='
-
-
-connection = http.client.HTTPConnection('ws.bus.go.kr')
 
 
 def search_location(keyword_string):
@@ -50,8 +48,8 @@ def search_path_info_bus(x1, y1, x2, y2):
     req = connection.getresponse()
     xml = req.read().decode('utf-8')
 
-    fname, tname, route, time = get_path(xml)
-    return fname, tname, route, time
+    path = get_path(xml)
+    return path
 
 
 def search_path_info_sub(x1, y1, x2, y2):
@@ -60,8 +58,8 @@ def search_path_info_sub(x1, y1, x2, y2):
     req = connection.getresponse()
     xml = req.read().decode('utf-8')
 
-    fname, tname, route, time = get_path(xml)
-    return fname, tname, route, time
+    path = get_path(xml)
+    return path
 
 
 def search_path_info_bus_N_sub(x1, y1, x2, y2):
@@ -70,8 +68,8 @@ def search_path_info_bus_N_sub(x1, y1, x2, y2):
     req = connection.getresponse()
     xml = req.read().decode('utf-8')
 
-    fname, tname, route, time = get_path(xml)
-    return fname, tname, route, time
+    path = get_path(xml)
+    return path
 
 
 def get_path(api_xml):
@@ -79,24 +77,28 @@ def get_path(api_xml):
     tree = ElementTree.fromstring(api_xml)
 
     items = tree.iter('itemList')
-    fname, tname, route = [], [], []
+    fname, fx, fy, tname, tx, ty, route = [], [], [], [], [], [], []
     time = []
 
-    j =0
+    j = 0
     for i in items:
         path_list = i.iter('pathList')
-        fname.append([]), tname.append([]), route.append([])
+        fname.append([]), fx.append([]), fy.append([]), tname.append([]), tx.append([]), ty.append([]), route.append([])
         for p in path_list:
             fname[j].append(p.find('fname').text)
+            fx[j].append(p.find('fx').text)
+            fy[j].append(p.find('fy').text)
             tname[j].append(p.find('tname').text)
+            tx[j].append(p.find('tx').text)
+            ty[j].append(p.find('ty').text)
             route[j].append(p.find('routeNm').text)
         time.append(i.find('time').text)
         j += 1
 
-    return fname, tname, route, time
+    return fname, fx, fy, tname, tx, ty, route, time
 
 
-
+'''
 a1, b1 = 126.7813931846, 37.483320789
 a2, b2 = 126.8131640173, 37.4847018435
 
@@ -106,3 +108,4 @@ print(f)
 print(t)
 print(r)
 print(time)
+'''
